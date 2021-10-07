@@ -23,3 +23,9 @@ export function isPalindromeNum(n) {
   }
   return (k == n)
 }
+
+// Euclud's algorithm for GCD
+export function euclidGCD(a, b) {
+  if (b == 0) return a;
+  return euclidGCD(b, a % b)
+}

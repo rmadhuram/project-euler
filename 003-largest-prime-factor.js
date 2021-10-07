@@ -1,3 +1,4 @@
+// Largest prime factor
 import {primeSieve} from './utils.js'
 
 let k = 600851475143

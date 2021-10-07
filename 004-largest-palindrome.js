@@ -1,3 +1,4 @@
+// Largest palindrome product
 import { isPalindromeNum } from "./utils.js";
 
 let largest = 0

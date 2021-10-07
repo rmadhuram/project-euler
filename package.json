@@ -1,0 +1,20 @@
+{
+  "name": "project-euler",
+  "version": "1.0.0",
+  "description": "My Project Euler Solutions",
+  "main": "001-mult35.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rmadhuram/project-euler.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rmadhuram/project-euler/issues"
+  },
+  "homepage": "https://github.com/rmadhuram/project-euler#readme"
+}

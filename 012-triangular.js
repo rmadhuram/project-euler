@@ -19,16 +19,7 @@ We can see that 28 is the first triangle number to have over five divisors.
 What is the value of the first triangle number to have over five hundred divisors?
 */
 
-function getNFactors(n) {
-  let nFact = 1
-  for (let i = 1; i<=Math.sqrt(n); i++) {
-    if (n % i == 0) {
-      if (i == Math.sqrt(n)) nFact++
-      else nFact += 2
-    }
-  }
-  return nFact
-}
+import { getNFactors } from './utils.js'
 
 let n = 1
 let i = 2

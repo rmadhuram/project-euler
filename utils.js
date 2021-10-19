@@ -29,3 +29,39 @@ export function euclidGCD(a, b) {
   if (b == 0) return a;
   return euclidGCD(b, a % b)
 }
+
+// Find the number of factors of a given number.
+export function getNFactors(n) {
+  let nFact = 1
+  for (let i = 1; i<=Math.sqrt(n); i++) {
+    if (n % i == 0) {
+      if (i == Math.sqrt(n)) nFact++
+      else nFact += 2
+    }
+  }
+  return nFact
+}
+
+// Get all proper factors of n (excludes n)
+export function getAllFactors(n) {
+  let facts = [1]
+  for (let i = 2; i<=Math.sqrt(n); i++) {
+    if (n % i == 0) {
+      if (i == Math.sqrt(n)) facts.push(i)
+      else {
+        facts.push(i)
+        facts.push(n/i)
+      }
+    }
+  }
+  return facts
+}
+
+// Find sum of all numbers in an array.
+export function sumOfArray(arr) {
+  let sum = 0
+  for (let i=0; i<arr.length; i++) {
+    sum += arr[i]
+  }
+  return sum
+}

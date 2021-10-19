@@ -15,7 +15,7 @@
  */
 
 /** 
- * This DP solution finds the max by memoizing in an efficient manner.
+ * This recursive solution tries every route and finds the max.
  */
 
 let data = `75
@@ -39,17 +39,25 @@ for (let i=0; i<data.length; i++) {
   data[i] = data[i].split(' ').map(x => +x)
 }
 
-for (let i=1; i<data.length; i++) {
-  for (let j=0; j<=i; j++) {
-    if (j==0) { 
-      data[i][j] += data[i-1][j]
-    } else if (j==i) {
-      data[i][j] += data[i-1][j-1]
-    } else {
-      data[i][j] = Math.max(data[i][j] + data[i-1][j-1], data[i][j] + data[i-1][j])
-    }
+/**
+ * (0,0)
+ * (1,0) (1,1)
+ * (2,0) (2,1) (2,2)
+ * 
+ * (i,j) -> (i+1,j)
+ * (i,j) -> (i+1, j+1)
+ */
+
+var max = 0
+function recurse(i, j, total) {
+  if (i == data.length) {
+    if (total > max) max = total
+  } else {
+    recurse(i+1, j, total + data[i][j])
+    recurse(i+1, j+1, total + data[i][j])
   }
 }
 
-console.log(Math.max(...data[data.length-1]))
+recurse(0, 0, 0, 0)
+console.log(max)
 

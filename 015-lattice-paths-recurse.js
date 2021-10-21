@@ -6,18 +6,7 @@ How many such routes are there through a 20×20 grid?
 */
 
 /*
-Solution:
-
-For 2x2, there are 4C2 combinations.
-RRDD
-RDRD
-RDDR
-DRRD
-DRDR
-DDRR
-
-For nxn grid, there are 2nCn combinations!
-
+This is a recursive solution that will work for small n.
 */
 
 var ctr = 0;

@@ -9,15 +9,23 @@ How many such routes are there through a 20×20 grid?
 This is a recursive solution that will work for small n.
 */
 
-var ctr = 0;
 function count(x, y, n) {
   if (x == n && y == n) {
-     ctr++;
-     return;
+     return 0;
   }
-  if (x < n) count(x+1, y, n);
-  if (y < n) count(x, y+1, n);
+  let ctr = 0
+  if (x < n) {
+    ctr += count(x+1, y, n)
+    ctr++
+  } 
+
+  if (y < n) {
+     ctr += count(x, y+1, n);
+     ctr++
+  }
+
+  return ctr
 }
 
-count(0,0,3)
+let ctr = count(0,0,3) + 2
 console.log(ctr);

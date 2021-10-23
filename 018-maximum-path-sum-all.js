@@ -48,6 +48,10 @@ for (let i=0; i<data.length; i++) {
  * (i,j) -> (i+1, j+1)
  */
 
+
+/*
+
+// top down, with a global max 
 var max = 0
 function recurse(i, j, total) {
   if (i == data.length) {
@@ -60,4 +64,15 @@ function recurse(i, j, total) {
 
 recurse(0, 0, 0)
 console.log(max)
+*/
 
+// bottom up, no globals 
+function recurse(i, j) {
+  if (i == data.length-1) return data[i][j]
+  return Math.max(
+    data[i][j] + recurse(i+1, j),
+    data[i][j] + recurse(i+1, j+1)
+  )
+}
+
+console.log(recurse(0,0))

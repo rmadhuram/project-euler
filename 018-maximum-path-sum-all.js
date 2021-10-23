@@ -58,6 +58,6 @@ function recurse(i, j, total) {
   }
 }
 
-recurse(0, 0, 0, 0)
+recurse(0, 0, 0)
 console.log(max)
 

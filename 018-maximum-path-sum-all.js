@@ -34,11 +34,23 @@ let data = `75
 63 66 04 68 89 53 67 30 73 16 69 87 40 31
 04 62 98 27 23 09 70 98 73 93 38 53 60 04 23`
 
+data = `77
+37  62
+42  51  33
+55  14  40  30
+22  67  42  24  10
+35  45  17  24  35  47
+68  90  35  76  66  21  46
+53  53  72  75  87  36  52  12
+07  56  42  52  32  05  38  53  65
+49  00  53  02  04  82  82  53  25  17`
+
 data = data.split('\n')
 for (let i=0; i<data.length; i++) {
-  data[i] = data[i].split(' ').map(x => +x)
+  data[i] = data[i].split('  ').map(x => +x)
 }
 
+console.log(data)
 /**
  * (0,0)
  * (1,0) (1,1)
@@ -48,21 +60,24 @@ for (let i=0; i<data.length; i++) {
  * (i,j) -> (i+1, j+1)
  */
 
-
 /*
 
 // top down, with a global max 
 var max = 0
-function recurse(i, j, total) {
+function recurse(i, j, total, path) {
   if (i == data.length) {
-    if (total > max) max = total
+    console.log(path)
+    if (total > max) {
+      max = total
+      console.log(path, max)
+    }
   } else {
-    recurse(i+1, j, total + data[i][j])
-    recurse(i+1, j+1, total + data[i][j])
+    recurse(i+1, j, total + data[i][j], path + ' ' + data[i][j])
+    recurse(i+1, j+1, total + data[i][j], path + ' ' + data[i][j])
   }
 }
 
-recurse(0, 0, 0)
+recurse(0, 0, 0, '')
 console.log(max)
 */
 

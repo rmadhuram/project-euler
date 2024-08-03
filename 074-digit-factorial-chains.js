@@ -1,5 +1,4 @@
 let fact = []
-let counts = []
 fact[0] = 1
 
 // precompute factorials.
@@ -38,14 +37,10 @@ for (let n = 1; n < 1000000; n++) {
   let pathLength = 0
   let map = {}
   k = n
-  let str = n
   while (!map[k]) {
     pathLength++
     map[k] = 1
     k = graph[k]
-    if (k) {
-      str += ` -> ${k}`
-    }
   }
 
   if (pathLength == 60) {

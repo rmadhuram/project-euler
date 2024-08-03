@@ -40,7 +40,6 @@ for (let n = 1; n < 1000000; n++) {
   k = n
   let str = n
   while (!map[k]) {
-    //console.log(`k is ${k}`)
     pathLength++
     map[k] = 1
     k = graph[k]
@@ -52,11 +51,7 @@ for (let n = 1; n < 1000000; n++) {
   if (pathLength == 60) {
     console.log(`   *** Found: ${n}`)
     nSixty++
-
   }
-
-  //console.log(str)
-  //console.log(`${n} -- len: ${pathLength}`)
 }
 
 console.log(nSixty)

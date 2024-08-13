@@ -13,6 +13,16 @@ export function primeSieve(n) {
   return arr;
 }
 
+// Get all primes less than n, using sieve
+export function getPrimesLT(n) {
+  let sieve = primeSieve(n)
+  let res = []
+  for (let i=2; i<sieve.length; i++) {
+    if (sieve[i]) res.push(i)
+  }
+  return res
+}
+
 // Is it a palindromic number?
 export function isPalindromeNum(n) {
   let k = 0

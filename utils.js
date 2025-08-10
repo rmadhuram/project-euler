@@ -13,6 +13,17 @@ export function primeSieve(n) {
   return arr;
 }
 
+export function isPrime(n) {
+  let isPrime = true
+  for (let i = 2; i <= Math.sqrt(n); i++) {
+    if (n % i == 0) {
+      isPrime = false
+      break
+    }
+  }
+  return isPrime
+}
+
 // Get all primes less than n, using sieve
 export function getPrimesLT(n) {
   let sieve = primeSieve(n)
@@ -67,6 +78,20 @@ export function getAllFactors(n) {
   return facts
 }
 
+export function getPrimeFactors(n) {
+  let factors = []
+  for (let i = 2; i <= Math.sqrt(n); i++) {
+    let prod = 1;
+    while (n % i == 0) {
+      prod *= i
+      n /= i
+    }
+    if (prod > 1) factors.push(prod)
+  }
+  if (n > 1) factors.push(n)
+  return factors
+}
+
 // Find sum of all numbers in an array.
 export function sumOfArray(arr) {
   let sum = 0
@@ -74,4 +99,23 @@ export function sumOfArray(arr) {
     sum += arr[i]
   }
   return sum
+}
+
+export function isPandigital(n) {
+  let str = n.toString()
+  let arr = str.split('')
+  arr.sort()
+  return arr.join('') == '0123456789'
+}
+
+export function getPermutations(arr, N) {
+  if (N == 1) return arr.map(x => [x])
+  let res = []
+  for (let i = 0; i < arr.length; i++) {
+    let rest = getPermutations(arr.slice(0, i).concat(arr.slice(i+1)), N-1)
+    for (let r of rest) {
+      res.push([arr[i]].concat(r))
+    }
+  }
+  return res
 }
